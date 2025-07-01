@@ -56,7 +56,7 @@ You need to modify the ```claude_desktop_config.json``` file. Where is it?
 
 #### VSCode (with Copilot)
 
-There are a few ways, but the easiest is probably to just make a ```.vscode``` folder inside whatever project you're working in, or make a new one if you just want to use the AI and Formulize. Inside that folder, make a ```mcp.json``` file that looks a lot like the Claude version:
+There are a few ways, but the easiest is probably to just make a ```.vscode``` folder inside whatever project you're working in. Or make a new project if you just want to use the AI and Formulize. Inside the ```.vscode``` folder, make a ```mcp.json``` file, that looks a lot like the Claude version:
 
 ```json
 {
