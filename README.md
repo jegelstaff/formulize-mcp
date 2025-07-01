@@ -1,7 +1,7 @@
 # formulize-mcp
 A local MCP server for connecting to Formulize systems on the web. 
 
-Release 1.2.1\
+Release 1.2.2\
 July 1 2025\
 Happy Canada Day!
 

@@ -46,7 +46,7 @@ interface CacheStats {
 class FormulizeServer {
   private server: Server;
   private config: FormulizeConfig;
-  private readonly version = '1.2.1';
+  private readonly version = '1.2.2';
   private readonly name = 'formulize-mcp';
 
   // Caching system
