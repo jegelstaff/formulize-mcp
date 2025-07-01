@@ -1,9 +1,17 @@
 # formulize-mcp
-A local MCP server for connecting to Formulize systems on the web. 
+A local MCP server for connecting to [Formulize](https://formulize.org) systems on the web. 
 
 Release 1.2.3\
+Author: Claude (mostly Sonnet 4, and a little Opus 4)\
+Designer and Supervisor: Julian Egelstaff\
 July 1 2025\
 Happy Canada Day!
+
+You probably already have a [Formulize](https://formulize.org) system, otherwise why are you here? But in case you didn't know...
+
+[Formulize](https://formulize.org) is an open source data management platform. With [Formulize](https://formulize.org), you can create web-based forms, connect them together to make unique apps, and publish the data with interactive reports.
+
+[Formulize](https://formulize.org) is quickly configured, and reconfigured, so it adapts as your needs change and your data grows. It's also completely free and open source.
 
 ## Step 1 - Node.js
 
@@ -11,9 +19,9 @@ You don't need to download anything from here (but you could, see below). You ju
 
 Once you do, all that's left is for you to configure your AI assistant(s).
 
-## Configuration
+## Step 2 - Configuration 
 
-### 1. Get a key for your Formulize system
+### First, get a key for your Formulize system
 
 Once you have node.js installed, you need to get an API key from your Formulize system, which will allow the MCP server to access Formulize. 
 
@@ -22,7 +30,7 @@ Once you have node.js installed, you need to get an API key from your Formulize 
 
 Once you have the key, configure your AI assistant:
 
-### 2. Configure your AI assistant
+### Second, configure your AI assistant
 
 Things are changing fast in the world of MCP. In the future, this local MCP server won't even be necessary, we hope. Microsoft wants to own the configuration of this on Windows by building it all into the OS. We'll see how that goes.
 
@@ -110,9 +118,11 @@ If you do this, then you need to change the .json config file for your AI assist
 
 Maybe you don't want to to rely on mysterious precompiled code from an NPM registry. But this is open source after all, and for a reason, so you do you.
 
-### 1. Download the latest release from this Github project
+### 1. Get the code
 
-### 2. Go to the folder where you downloaded it
+[Download](https://github.com/jegelstaff/formulize-mcp/releases), use git, whatever you prefer.
+
+### 2. Go to the folder with the code
 
 ```bash
 cd folder/with/the/files
