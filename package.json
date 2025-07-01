@@ -4,10 +4,12 @@
   "description": "MCP server proxy for Formulize data management system",
   "main": "dist/formulize-mcp.js",
   "bin": {
-    "formulize-mcp": "dist/formulize-mcp.js"
+    "formulize-mcp": "./dist/formulize-mcp.js"
   },
   "files": [
-    "dist/**/*",
+    "dist/*.js",
+    "dist/*.d.ts",
+    "dist/*.js.map",
     "README.md",
     "LICENSE"
   ],
@@ -24,7 +26,7 @@
     "ai"
   ],
   "author": "Julian Egelstaff and Claude (Sonnet 4 and Opus 4)",
-  "license": "GPL2",
+  "license": "GPL-2.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jegelstaff/formulize-mcp.git"
