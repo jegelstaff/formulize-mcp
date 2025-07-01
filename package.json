@@ -1,0 +1,42 @@
+{
+  "name": "formulize-mcp",
+  "version": "1.2.0",
+  "description": "MCP server proxy for Formulize data management system",
+  "main": "dist/index.js",
+  "bin": {
+    "formulize-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "formulize",
+    "model-context-protocol",
+    "claude",
+    "ai"
+  ],
+  "author": "Your Name",
+  "license": "GPL2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jegelstaff/formulize-mcp.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
