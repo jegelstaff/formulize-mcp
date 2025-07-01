@@ -2,9 +2,9 @@
   "name": "formulize-mcp",
   "version": "1.2.0",
   "description": "MCP server proxy for Formulize data management system",
-  "main": "dist/index.js",
+  "main": "dist/formulize-mcp.js",
   "bin": {
-    "formulize-mcp": "./dist/index.js"
+    "formulize-mcp": "dist/formulize-mcp.js"
   },
   "files": [
     "dist/**/*",
@@ -14,20 +14,24 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "start": "node dist/index.js"
+    "start": "node dist/formulize-mcp.js"
   },
   "keywords": [
     "mcp",
     "formulize",
     "model-context-protocol",
-    "claude",
+    "data-management",
     "ai"
   ],
-  "author": "Your Name",
+  "author": "Julian Egelstaff and Claude (Sonnet 4 and Opus 4)",
   "license": "GPL2",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jegelstaff/formulize-mcp.git"
+    "url": "git+https://github.com/jegelstaff/formulize-mcp.git"
+  },
+  "homepage": "https://github.com/jegelstaff/formulize-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/jegelstaff/formulize-mcp/issues"
   },
   "engines": {
     "node": ">=18.0.0"
