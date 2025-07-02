@@ -1,7 +1,7 @@
 {
   "name": "formulize-mcp",
-  "version": "1.2.3",
-  "description": "MCP server proxy for Formulize data management system",
+  "version": "1.2.6",
+  "description": "A local MCP server for connecting to Formulize, the open source data management platform.",
   "main": "dist/formulize-mcp.js",
   "bin": {
     "formulize-mcp": "./dist/formulize-mcp.js"
