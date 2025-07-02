@@ -15,7 +15,7 @@ You probably already have a [Formulize](https://formulize.org) system, otherwise
 
 ## Step 1 - Node.js
 
-You don't need to download anything from here (but you could, see below). You just need to have [node.js installed on your system](https://nodejs.org/en/download).
+You don't need to use ```npm```, or download anything from Github (but you could, see below). You just need to have [node.js installed on your system](https://nodejs.org/en/download).
 
 Once you do, all that's left is for you to configure your AI assistant(s).
 
@@ -32,9 +32,9 @@ Once you have the key, configure your AI assistant:
 
 ### Second, configure your AI assistant
 
-Things are changing fast in the world of MCP. In the future, this local MCP server won't even be necessary, we hope. Microsoft wants to own the configuration of this on Windows by building it all into the OS. We'll see how that goes.
+Things are changing fast in the world of MCP. In the future, this local MCP server may not even be necessary. We hope it becomes easy to connect AI assistants directly to remote Formulize instances. Microsoft wants to own the configuration of all this on Windows by building it all into the OS. We'll see how that goes. Everyone is trying to stake their claim.
 
-For now, here's some examples of .json files that will allow different AI assistants to use this local MCP server:
+In the meantime, you have to configure each AI assistant individually. Here's some examples of .json files that will allow different AI assistants to use this local MCP server, with no installation required:
 
 #### Claude Desktop
 
@@ -153,6 +153,6 @@ If you do all this, then you need to change the .json config file for your AI as
 
 - ```npx``` becomes ```node```
 - ```-y``` argument is removed
-- ```formulize-mcp``` becomes full path to the compiled .js file.
+- ```formulize-mcp``` becomes the full path to the compiled .js file (ie: ```C:\\yourdir\\dist\\formulize-mcp.js```).
 
 On Windows, don't forget to use double slashes ( \\\\ ) for directory separators in the path. :(
