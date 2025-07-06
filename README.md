@@ -47,15 +47,16 @@ You need to modify the ```claude_desktop_config.json``` file. Where is it?
 ```json
 {
   "mcpServers": {
-    "Formulize": {
+    "My Formulize MCP Server": {
       "command": "npx",
       "args": [
         "-y",
         "formulize-mcp"
       ],
       "env": {
-        "FORMULIZE_BASE_URL": "https://<your.formulize.site.url>/mcp/",
-        "FORMULIZE_API_KEY": "<your api key from your formulize site>"
+        "FORMULIZE_MCP_URL": "https://<your.formulize.site.url>/mcp/",
+        "FORMULIZE_API_KEY": "<your api key from your formulize site>",
+        "FORMULIZE_SERVER_NAME": "My Formulize MCP Server"
       }
     }
   }
@@ -69,15 +70,16 @@ There are a few ways, but the easiest is probably to just make a ```.vscode``` f
 ```json
 {
   "servers": {
-    "Formulize": {
+    "My Formulize MCP Server": {
       "command": "npx",
       "args": [
         "-y",
         "formulize-mcp"
       ],
       "env": {
-        "FORMULIZE_BASE_URL": "https://<your.formulize.site.url>/mcp/",
-        "FORMULIZE_API_KEY": "<your api key from your formulize site>"
+        "FORMULIZE_MCP_URL": "https://<your.formulize.site.url>/mcp/",
+        "FORMULIZE_API_KEY": "<your api key from your formulize site>",
+        "FORMULIZE_SERVER_NAME": "My Formulize MCP Server"
       }
     }
   }
@@ -92,8 +94,9 @@ __Your mileage may vary!__
 
 ### Environment Variables
 
-- FORMULIZE_BASE_URL - Required - The URL for the mcp folder of your Formulize system, ie: https://yoursite.com/mcp/
-- FORMULIZE_API_KEY - Required - Your API key for your Formulize system
+- FORMULIZE_MCP_URL - Required - The URL for the mcp folder of your Formulize system, ie: https://yoursite.com/mcp/
+- FORMULIZE_API_KEY - Required - Your API key for your Formulize system.
+- FORMULIZE_SERVER_NAME - Recommended - The name of your server. Although the name may be stated already higher up in the .json file, including the name as an environment variable will help the AI understand your system.
 - FORMULIZE_DEBUG - Optional - Either _true_ or _false_. Defaults to _false_.
 - FORMULIZE_TIMEOUT - Optional - Timeout in milliseconds. Defaults to _30000_.
 

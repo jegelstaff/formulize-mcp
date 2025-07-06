@@ -45,9 +45,9 @@ interface CacheStats {
 
 class FormulizeServer {
   private server: Server;
-  private config: FormulizeConfig;
   private readonly version = '1.2.6';
-  private readonly name = 'formulize-mcp';
+  private config = this.loadConfig();
+  private readonly name = this.loadServerName();
 
   // Caching system
   private cache: Map<string, CacheEntry> = new Map();
@@ -56,7 +56,6 @@ class FormulizeServer {
   private readonly maxCacheSize = 1000; // Maximum number of cache entries
 
   constructor() {
-    this.config = this.loadConfig();
     this.server = new Server(
       {
         name: this.name,
@@ -78,15 +77,15 @@ class FormulizeServer {
   }
 
   private loadConfig(): FormulizeConfig {
-    if (!process.env.FORMULIZE_BASE_URL) {
-      throw new Error('FORMULIZE_BASE_URL environment variable is required');
+    if (!process.env.FORMULIZE_MCP_URL) {
+      throw new Error('FORMULIZE_MCP_URL environment variable is required');
     }
     if (!process.env.FORMULIZE_API_KEY) {
       throw new Error('FORMULIZE_API_KEY environment variable is required');
     }
 
 		const apiKey = process.env.FORMULIZE_API_KEY;
-		let baseUrl = process.env.FORMULIZE_BASE_URL;
+		let baseUrl = process.env.FORMULIZE_MCP_URL;
 		if (baseUrl.endsWith('/')) {
 			baseUrl += 'index.php';
 		}
@@ -97,6 +96,17 @@ class FormulizeServer {
 			timeout: parseInt(process.env.FORMULIZE_TIMEOUT || '30000'),
 			debug: process.env.FORMULIZE_DEBUG === 'true',
 		};
+  }
+
+  /**
+   * Load server name from environment variable or fall back to default
+   */
+  private loadServerName(): string {
+    const serverName = process.env.FORMULIZE_SERVER_NAME || 'formulize'; 
+    if (this.config?.debug) {
+      console.error(`[DEBUG] Server name: ${serverName}`);
+    }
+    return serverName;
   }
 
   /**
@@ -588,6 +598,10 @@ class FormulizeServer {
       jsonrpc: '2.0',
       method,
       params,
+      localServerDetails: {
+        name: this.name,
+        version: this.version
+      },
       id: Date.now(),
     };
 
