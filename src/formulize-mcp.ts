@@ -77,18 +77,19 @@ class FormulizeServer {
   }
 
   private loadConfig(): FormulizeConfig {
-    if (!process.env.FORMULIZE_MCP_URL) {
-      throw new Error('FORMULIZE_MCP_URL environment variable is required');
+    if (!process.env.FORMULIZE_URL) {
+      throw new Error('FORMULIZE_URL environment variable is required');
     }
     if (!process.env.FORMULIZE_API_KEY) {
       throw new Error('FORMULIZE_API_KEY environment variable is required');
     }
 
 		const apiKey = process.env.FORMULIZE_API_KEY;
-		let baseUrl = process.env.FORMULIZE_MCP_URL;
-		if (baseUrl.endsWith('/')) {
-			baseUrl += 'index.php';
-		}
+		let baseUrl = process.env.FORMULIZE_URL;
+    if(baseUrl.endsWith('/') == false) {
+      baseUrl += '/';
+    }
+    baseUrl += 'mcp/index.php';
 
 		return {
 			baseUrl: baseUrl,

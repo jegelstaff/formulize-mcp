@@ -1,11 +1,10 @@
 # formulize-mcp
-A local MCP server for connecting to [Formulize](https://formulize.org) systems on the web. 
+A local MCP server for connecting to [Formulize](https://formulize.org) systems on the web. User your AI assistant to get information from Formulize, and send information to it. Use AI to create forms, create entries, examine the configuration, summarize data... The sky's the limit!
 
 Release 1.2.6\
 Author: Claude (mostly Sonnet 4, and a little Opus 4)\
-Designer and Supervisor: Julian Egelstaff\
-July 1 2025\
-Happy Canada Day!
+Architect: Julian Egelstaff\
+July 6 2025\
 
 You probably already have a [Formulize](https://formulize.org) system, otherwise why are you here? But in case you didn't know...
 
@@ -54,7 +53,7 @@ You need to modify the ```claude_desktop_config.json``` file. Where is it?
         "formulize-mcp"
       ],
       "env": {
-        "FORMULIZE_MCP_URL": "https://<your.formulize.site.url>/mcp/",
+        "FORMULIZE_URL": "https://<your.formulize.site.url>",
         "FORMULIZE_API_KEY": "<your api key from your formulize site>",
         "FORMULIZE_SERVER_NAME": "My Formulize MCP Server"
       }
@@ -77,7 +76,7 @@ There are a few ways, but the easiest is probably to just make a ```.vscode``` f
         "formulize-mcp"
       ],
       "env": {
-        "FORMULIZE_MCP_URL": "https://<your.formulize.site.url>/mcp/",
+        "FORMULIZE_URL": "https://<your.formulize.site.url>",
         "FORMULIZE_API_KEY": "<your api key from your formulize site>",
         "FORMULIZE_SERVER_NAME": "My Formulize MCP Server"
       }
@@ -94,7 +93,7 @@ __Your mileage may vary!__
 
 ### Environment Variables
 
-- FORMULIZE_MCP_URL - Required - The URL for the mcp folder of your Formulize system, ie: https://yoursite.com/mcp/
+- FORMULIZE_URL - Required - The URL for your Formulize system, ie: https://myformulize.com
 - FORMULIZE_API_KEY - Required - Your API key for your Formulize system.
 - FORMULIZE_SERVER_NAME - Recommended - The name of your server. Although the name may be stated already higher up in the .json file, including the name as an environment variable will help the AI understand your system.
 - FORMULIZE_DEBUG - Optional - Either _true_ or _false_. Defaults to _false_.
