@@ -640,7 +640,7 @@ class FormulizeServer {
       const data = await response.json();
 
       if (this.config.debug) {
-        console.error('[DEBUG] Response from server:', data);
+        console.error('[DEBUG] Response from server:', JSON.stringify(data, null, 2));
       }
 
       return data;
