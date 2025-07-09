@@ -6,6 +6,7 @@
   "bin": {
     "formulize-mcp": "./dist/formulize-mcp.js"
   },
+  "type": "module",
   "files": [
     "dist/**/*",
     "README.md",
