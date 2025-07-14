@@ -101,17 +101,20 @@
 		{
 			"name": "check_the_activity_logs",
 			"description": "Ask the AI for a report on recent user activity",
-			"arguments": ["users","forms"]
+			"arguments": ["users","forms"],
+			"text": "Dynamically generated prompt text based on the arguments"
 		},
 		{
 			"name": "generate_a_report_about_a_form",
 			"description": "Ask the AI to write a report about the data in a form.",
-			"arguments": ["form","report_type","focus"]
+			"arguments": ["form","report_type","focus"],
+			"text": "Dynamically generated prompt text based on the arguments"
 		},
 		{
 			"name": "look_up_data",
 			"description": "Ask the AI to look up data in the system.",
-			"arguments": ["form","searches","limit","sortDetails","elements"]
+			"arguments": ["form","searches","limit","sortDetails","elements"],
+			"text": "Dynamically generated prompt text based on the arguments"
 		}
   ],
   "tools_generated": true,
@@ -130,6 +133,13 @@
       "description": "All data in Formulize is permission controlled. To identify yourself to the remote Formulize MCP server, you need to use an API key from your Formulize system. This can be generated on the Admin side, on the Manage API Keys page.",
       "required": true,
       "sensitive": true
+    },
+    "FORMULIZE_SERVER_NAME": {
+      "type": "string",
+      "title": "The name of your Formulize system",
+      "description": "Recommended, but not required. The name of your system, ie: ACME Widgets Inventory",
+      "required": false,
+      "sensitive": false
     },
     "FORMULIZE_DEBUG": {
       "type": "boolean",
