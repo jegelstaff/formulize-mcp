@@ -4,7 +4,7 @@ A local MCP server for connecting to [Formulize](https://formulize.org) systems 
 Release 1.3.1\
 Author: Claude (mostly Sonnet 4, and a little Opus 4)\
 Architect: Julian Egelstaff\
-July 10 2025\
+July 10 2025
 
 You probably already have a [Formulize](https://formulize.org) system, otherwise why are you here? But in case you didn't know...
 
