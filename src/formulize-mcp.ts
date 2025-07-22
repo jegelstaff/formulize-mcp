@@ -522,13 +522,30 @@ class FormulizeServer {
         if (this.shouldCache(method)) {
           this.setCache(cacheKey, response.result, method);
         }
-
         return response.result;
+
       } else if (response.error) {
+
+        if (this.config.debug) {
+          console.error(`[DEBUG] ${type} ${action} error - Full response:`, JSON.stringify(response, null, 2));
+        }
+
+        const fullErrorInfo = {
+          source: 'formulize_remote_server',
+          remote_error: response.error,
+          ...(response.id && { request_id: response.id }),
+          ...(response.timestamp && { response_timestamp: response.timestamp }),
+          proxy_info: {
+            proxy_version: this.version,
+            request_method: method,
+            request_params: params
+          }
+        };
         throw new McpError(
           ErrorCode.InternalError,
-          `Remote server error: ${response.error.message}`
+          JSON.stringify(fullErrorInfo, null, 2)
         );
+
       } else {
         throw new Error('Invalid response from remote server');
       }
