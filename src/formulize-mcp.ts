@@ -530,21 +530,39 @@ class FormulizeServer {
           console.error(`[DEBUG] ${type} ${action} error - Full response:`, JSON.stringify(response, null, 2));
         }
 
-        const fullErrorInfo = {
-          source: 'formulize_remote_server',
-          remote_error: response.error,
-          ...(response.id && { request_id: response.id }),
-          ...(response.timestamp && { response_timestamp: response.timestamp }),
-          proxy_info: {
-            proxy_version: this.version,
-            request_method: method,
-            request_params: params
-          }
-        };
-        throw new McpError(
-          ErrorCode.InternalError,
-          JSON.stringify(fullErrorInfo, null, 2)
-        );
+        /** 
+         * For 200 series responses without results, and for 422 errors, return the error 
+         * as if it were a successful response so the AI will more likely handle the details correctly
+         */
+        if(response.httpStatus == 422 || (response.httpStatus >= 200 && response.httpStatus < 300)) {
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify({
+                success: false,
+                error: response.error,
+                source: 'formulize_remote_server'
+              }, null, 2)
+            }]
+          };
+        } else {
+
+          const fullErrorInfo = {
+            source: 'formulize_remote_server',
+            remote_error: response.error,
+            ...(response.id && { request_id: response.id }),
+            ...(response.timestamp && { response_timestamp: response.timestamp }),
+            proxy_info: {
+              proxy_version: this.version,
+              request_method: method,
+              request_params: params
+            }
+          };
+          throw new McpError(
+            ErrorCode.InvalidRequest,
+            JSON.stringify(fullErrorInfo, null, 2)
+          );
+        }
 
       } else {
         throw new Error('Invalid response from remote server');
@@ -650,17 +668,23 @@ class FormulizeServer {
 
       clearTimeout(timeoutId);
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
       const data = await response.json();
 
       if (this.config.debug) {
         console.error('[DEBUG] Response from server:', JSON.stringify(data, null, 2));
       }
 
+      /**
+       * Error out on 500 and above, but below that we want the client to interact with the entire result like normal
+       * Formulize MCP will return 422 for PHP errors internally
+       */
+      if (!response.ok && response.status >= 500) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      data.httpStatus = response.status;
       return data;
+      
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error && error.name === 'AbortError') {
