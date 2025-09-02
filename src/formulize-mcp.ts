@@ -45,7 +45,7 @@ interface CacheStats {
 
 class FormulizeServer {
   private server: Server;
-  private readonly version = '1.3.2';
+  private readonly version = '1.3.3';
   private config = this.loadConfig();
   private readonly name = this.loadServerName();
 
@@ -684,7 +684,7 @@ class FormulizeServer {
 
       data.httpStatus = response.status;
       return data;
-      
+
     } catch (error) {
       clearTimeout(timeoutId);
       if (error instanceof Error && error.name === 'AbortError') {
