@@ -1,5 +1,5 @@
 {
-  "dxt_version": "0.1",
+  "manifest_version": "0.2",
   "name": "formulize-mcp",
   "display_name": "Formulize",
   "version": "1.3.3",
@@ -76,6 +76,58 @@
 			"name": "prepare_database_values_for_human_readability",
 			"description": "Convert database values to human-readable format. Essential for linked elements (foreign keys), checkboxes, and select lists where raw database values are IDs or codes rather than display text."
 		},
+    {
+      "name": "create_form",
+      "description": "Create a new form in the Formulize system."
+    },
+    {
+      "name": "create_text_box_element",
+      "description": "Create a new text box element (field) in a specified form."
+    },
+    {
+      "name": "create_list_element",
+      "description": "Create a new list element (field) in a specified form."
+    },
+    {
+      "name": "create_linked_list_element",
+      "description": "Create a new list element (field) in a specified form, with options linked to entries in another form."
+    },
+    {
+      "name": "create_user_list_element",
+      "description": "Create a new list element (field) in a specified form, with options based on user accounts in the system."
+    },
+    {
+      "name": "create_selector_element",
+      "description": "Create a new selector element (field) in a specified form, such as date selector, time selector, etc."
+    },
+    {
+      "name": "create_subform_interface",
+      "description": "Create a new subform interface in a specified form, for displaying entries in a connected form."
+    },
+    {
+      "name": "update_text_box_element",
+      "description": "Update an existing text box element (field) in a specified form."
+    },
+    {
+      "name": "update_list_element",
+      "description": "Update an existing list element (field) in a specified form."
+    },
+    {
+      "name": "update_linked_list_element",
+      "description": "Update an existing linked list element (field) in a specified form, with options linked to entries in another form."
+    },
+    {
+      "name": "update_user_list_element",
+      "description": "Update an existing user list element (field) in a specified form, with options based on user accounts in the system."
+    },
+    {
+      "name": "update_selector_element",
+      "description": "Update an existing selector element (field) in a specified form, such as date selector, time selector, etc."
+    },
+    {
+      "name": "update_subform_interface",
+      "description": "Update an existing subform interface in a specified form, for displaying entries in a connected form."
+    },
 		{
 			"name": "test_connection",
 			"description": "Test the MCP server connection and database access"
