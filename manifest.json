@@ -61,12 +61,12 @@
 			"description": "Get detailed information about a specific screen. Lookup screens by their ID number, also known as 'sid'"
 		},
 		{
-			"name": "create_entry",
-			"description": "Create a new entry in a Formulize form. Returns success status and new entry ID. Formulize may automatically add default values for required elements, if they have default values defined. Do not be concerned about required elements unless this tool returns an error saying that required elements are missing."
+			"name": "create_entries",
+			"description": "Create one or more new entries in a Formulize form. Returns success status and new entry IDs. Formulize may automatically add default values for required elements, if they have default values defined. Do not be concerned about required elements unless this tool returns an error saying that required elements are missing."
 		},
 		{
-			"name": "update_entry",
-			"description": "Update an existing entry in a Formulize form."
+			"name": "update_entries",
+			"description": "Update an existing entry or entries in a Formulize form."
 		},
 		{
 			"name": "get_entries_from_form",
