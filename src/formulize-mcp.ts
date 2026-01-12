@@ -539,7 +539,7 @@ class FormulizeServer {
             content: [{
               type: 'text',
               text: JSON.stringify({
-                success: false,
+                success: true,
                 error: response.error,
                 source: 'formulize_remote_server'
               }, null, 2)
@@ -560,7 +560,8 @@ class FormulizeServer {
           };
           throw new McpError(
             ErrorCode.InvalidRequest,
-            JSON.stringify(fullErrorInfo, null, 2)
+            response.error.message || 'Error from remote Formulize server',
+            fullErrorInfo
           );
         }
 
