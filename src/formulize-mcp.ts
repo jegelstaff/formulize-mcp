@@ -45,7 +45,7 @@ interface CacheStats {
 
 class FormulizeServer {
   private server: Server;
-  private readonly version = '1.3.3';
+  private readonly version = '1.4.0';
   private config = this.loadConfig();
   private readonly name = this.loadServerName();
 

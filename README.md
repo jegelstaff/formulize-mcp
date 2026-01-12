@@ -1,10 +1,10 @@
 # formulize-mcp
 A local MCP server for connecting to [Formulize](https://formulize.org) systems on the web. Use your AI assistant to get information from Formulize, and send information to it. Use AI to create forms, create entries, examine the configuration, summarize data... The sky's the limit!
 
-Release 1.3.3\
+Release 1.4.0\
 Author: Claude (mostly Sonnet 4, and a little Opus 4)\
 Architect: Julian Egelstaff\
-July 22 2025
+Jan 12 2026
 
 You probably already have a [Formulize](https://formulize.org) system, otherwise why are you here? But in case you didn't know...
 
